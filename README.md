@@ -23,19 +23,18 @@ O trabalho 3 (T3) da disciplina consiste na implementação de um analisador sem
 O analisador semântico detecta 4 tipos de erros:
   
 1. Identificador (variável, constante, procedimento, função, tipo) já declarado anteriormente no escopo
-1.1.  O mesmo identificador não pode ser usado novamente no mesmo escopo mesmo que para categorias diferentes
+   - O mesmo identificador não pode ser usado novamente no mesmo escopo mesmo que para categorias diferentes
 2. Tipo não declarado
 3. Identificador (variável, constante, procedimento, função) não declarado
 4. Atribuição não compatível com o tipo declarado
+   - Atribuições possíveis
+     - ponteiro ← endereço <br>
+     - (real | inteiro) ← (real | inteiro) <br>
+     - literal ← literal <br>
+     - logico ← logico <br>
+     - registro ← registro (com mesmo nome de tipo)
 
-  4.1. Atribuições possíveis
-* ponteiro ← endereço
-* (real | inteiro) ← (real | inteiro)
-* literal ← literal
-* logico ← logico
-* registro ← registro (com mesmo nome de tipo)
-
-  4.2. As mesmas restrições são válidas para expressões, por exemplo, ao tentar combinar um literal com um logico (como em literal + logico) deve dar tipo_indefinido e inviabilizar a atribuição
+   - As mesmas restrições são válidas para expressões, por exemplo, ao tentar combinar um literal com um logico (como em literal + logico) deve dar tipo_indefinido e inviabilizar a atribuição
 
 Ao encontrar um erro, o analisador NÃO interrompe sua execução. Ele continua reportando erros até o final do arquivo.
 
