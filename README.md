@@ -28,10 +28,10 @@ O analisador semântico detecta 4 tipos de erros:
 3. Identificador (variável, constante, procedimento, função) não declarado
 4. Atribuição não compatível com o tipo declarado
    - Atribuições possíveis
-     - ponteiro ← endereço <br>
-     - (real | inteiro) ← (real | inteiro) <br>
-     - literal ← literal <br>
-     - logico ← logico <br>
+     - ponteiro ← endereço
+     - (real | inteiro) ← (real | inteiro)
+     - literal ← literal
+     - logico ← logico
      - registro ← registro (com mesmo nome de tipo)
 
    - As mesmas restrições são válidas para expressões, por exemplo, ao tentar combinar um literal com um logico (como em literal + logico) deve dar tipo_indefinido e inviabilizar a atribuição
