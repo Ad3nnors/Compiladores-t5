@@ -58,10 +58,10 @@ Argumento 2: arquivo de saída (caminho completo)
 Exemplo de como rodar o analisador:
 
 ```
-java -jar C:\compiladorest1\target\compiladorest1-1.0-SNAPSHOT-jar-with-dependencies.jar C:\compiladorest1\casos-de-teste\1.casos_teste_t1\entrada\20-algoritmo_7-3_apostila_LA.txt C:\compiladorest1\saida.txt
+java -jar C:\compilatorest3\target\expr-parser2-1.0-SNAPSHOT-jar-with-dependencies.jar C:\compilatorest3\casos-de-teste\3.casos_teste_t3\entrada\8.algoritmo_6-2_apostila_LA.txt C:\compiladorest3\saida.txt
 ```
 
-Como resultado, seu compilador deve ler a entrada de C:\compiladorest1\casos-de-teste\1.casos_teste_t1\entrada\20-algoritmo_7-3_apostila_LA.txt e salvar a saída no arquivo C:\compiladorest1\saida.txt
+Como resultado, seu compilador deve ler a entrada C:\compilatorest3\casos-de-teste\3.casos_teste_t3\entrada\8.algoritmo_6-2_apostila_LA.txt e salvar a saída no diretório C:\compiladorest3\saida.txt
 
 <div id='obs'>
 
@@ -70,7 +70,7 @@ Como resultado, seu compilador deve ler a entrada de C:\compiladorest1\casos-de-
 Encontram-se também nesse projeto:
   
 Os casos de teste <br>
-O compilador automático 
+  <a href="https://github.com/dlucredio/compiladores-corretor-automatico">O compilador automático </a>
 
 Todo esse conteúdo foi disponibilizado pelo professor. 
 
