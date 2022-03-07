@@ -70,7 +70,7 @@ Como resultado, seu compilador deve ler a entrada C:\compilatorest3\casos-de-tes
 Encontram-se também nesse projeto:
   
 Os casos de teste <br>
-  <a href="https://github.com/dlucredio/compiladores-corretor-automatico">O compilador automático </a>
+  <a href="https://github.com/dlucredio/compiladores-corretor-automatico/blob/master/Compiladores.CorretorT1T2T3.docx.pdf">O compilador automático </a>
 
 Todo esse conteúdo foi disponibilizado pelo professor. 
 
