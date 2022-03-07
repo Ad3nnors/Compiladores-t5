@@ -27,13 +27,15 @@ O analisador semântico detecta 4 tipos de erros:
 2. Tipo não declarado
 3. Identificador (variável, constante, procedimento, função) não declarado
 4. Atribuição não compatível com o tipo declarado
-4.1. Atribuições possíveis
-ponteiro ← endereço
-(real | inteiro) ← (real | inteiro)
-literal ← literal
-logico ← logico
-registro ← registro (com mesmo nome de tipo)
-4.2. As mesmas restrições são válidas para expressões, por exemplo, ao tentar combinar um literal com um logico (como em literal + logico) deve dar tipo_indefinido e inviabilizar a atribuição
+
+  4.1. Atribuições possíveis
+* ponteiro ← endereço
+* (real | inteiro) ← (real | inteiro)
+* literal ← literal
+* logico ← logico
+* registro ← registro (com mesmo nome de tipo)
+
+  4.2. As mesmas restrições são válidas para expressões, por exemplo, ao tentar combinar um literal com um logico (como em literal + logico) deve dar tipo_indefinido e inviabilizar a atribuição
 
 Ao encontrar um erro, o analisador NÃO interrompe sua execução. Ele continua reportando erros até o final do arquivo.
 
