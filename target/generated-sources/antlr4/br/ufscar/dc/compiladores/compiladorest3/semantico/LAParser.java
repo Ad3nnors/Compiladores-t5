@@ -2065,6 +2065,7 @@ public class LAParser extends Parser {
 	}
 
 	public static class CmdAtribuicaoContext extends ParserRuleContext {
+		public Token ponteiro;
 		public IdentificadorContext identificador() {
 			return getRuleContext(IdentificadorContext.class,0);
 		}
@@ -2103,7 +2104,7 @@ public class LAParser extends Parser {
 			if (_la==T__15) {
 				{
 				setState(379);
-				match(T__15);
+				((CmdAtribuicaoContext)_localctx).ponteiro = match(T__15);
 				}
 			}
 

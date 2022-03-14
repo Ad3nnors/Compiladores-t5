@@ -1,8 +1,8 @@
 package br.ufscar.dc.compiladores.compiladorest3;
 
-import br.ufscar.dc.compiladores.compiladorest3.parser.LALexer;
-import br.ufscar.dc.compiladores.compiladorest3.parser.LAParser;
-import br.ufscar.dc.compiladores.compiladorest3.parser.LAParser.ProgramaContext;
+import br.ufscar.dc.compiladores.compiladorest3.semantico.LALexer;
+import br.ufscar.dc.compiladores.compiladorest3.semantico.LAParser;
+import br.ufscar.dc.compiladores.compiladorest3.semantico.LAParser.ProgramaContext;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,5 +29,7 @@ public class Principal {
         LASemanticoUtils.errosSemanticos.forEach((s) -> gravarArq.println(s));
         gravarArq.println("Fim da compilacao");
         arq.close();
+        
+        // as.tabela.imprimir();
     }
 }

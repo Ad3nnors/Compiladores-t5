@@ -138,7 +138,7 @@ cmdFaca
     :   'faca' cmd* 'ate' expressao
     ;
 cmdAtribuicao
-    :   '^'? identificador '<-' expressao
+    :   (ponteiro = '^')? identificador '<-' expressao
     ;
 cmdChamada
     :   IDENT '(' expressao (',' expressao)* ')'
