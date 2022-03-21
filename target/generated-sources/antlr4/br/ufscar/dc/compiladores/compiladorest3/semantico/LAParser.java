@@ -792,6 +792,7 @@ public class LAParser extends Parser {
 	}
 
 	public static class Tipo_estendidoContext extends ParserRuleContext {
+		public Token ponteiro;
 		public Tipo_basico_identContext tipo_basico_ident() {
 			return getRuleContext(Tipo_basico_identContext.class,0);
 		}
@@ -827,7 +828,7 @@ public class LAParser extends Parser {
 			if (_la==T__15) {
 				{
 				setState(171);
-				match(T__15);
+				((Tipo_estendidoContext)_localctx).ponteiro = match(T__15);
 				}
 			}
 
@@ -1756,6 +1757,7 @@ public class LAParser extends Parser {
 	}
 
 	public static class CmdCasoContext extends ParserRuleContext {
+		public CmdContext senao;
 		public Exp_aritmeticaContext exp_aritmetica() {
 			return getRuleContext(Exp_aritmeticaContext.class,0);
 		}
@@ -1816,7 +1818,7 @@ public class LAParser extends Parser {
 					{
 					{
 					setState(333);
-					cmd();
+					((CmdCasoContext)_localctx).senao = cmd();
 					}
 					}
 					setState(338);
@@ -2436,6 +2438,7 @@ public class LAParser extends Parser {
 	}
 
 	public static class Numero_intervaloContext extends ParserRuleContext {
+		public Token pontos;
 		public List<TerminalNode> NUM_INT() { return getTokens(LAParser.NUM_INT); }
 		public TerminalNode NUM_INT(int i) {
 			return getToken(LAParser.NUM_INT, i);
@@ -2490,7 +2493,7 @@ public class LAParser extends Parser {
 			if (_la==T__45) {
 				{
 				setState(427);
-				match(T__45);
+				((Numero_intervaloContext)_localctx).pontos = match(T__45);
 				setState(429);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
@@ -2996,6 +2999,7 @@ public class LAParser extends Parser {
 	}
 
 	public static class Parcela_unarioContext extends ParserRuleContext {
+		public Token ponteiro;
 		public ExpressaoContext exp1;
 		public IdentificadorContext identificador() {
 			return getRuleContext(IdentificadorContext.class,0);
@@ -3045,7 +3049,7 @@ public class LAParser extends Parser {
 				if (_la==T__15) {
 					{
 					setState(476);
-					match(T__15);
+					((Parcela_unarioContext)_localctx).ponteiro = match(T__15);
 					}
 				}
 
@@ -3438,6 +3442,7 @@ public class LAParser extends Parser {
 	}
 
 	public static class Fator_logicoContext extends ParserRuleContext {
+		public Token nao;
 		public Parcela_logicaContext parcela_logica() {
 			return getRuleContext(Parcela_logicaContext.class,0);
 		}
@@ -3473,7 +3478,7 @@ public class LAParser extends Parser {
 			if (_la==T__57) {
 				{
 				setState(531);
-				match(T__57);
+				((Fator_logicoContext)_localctx).nao = match(T__57);
 				}
 			}
 

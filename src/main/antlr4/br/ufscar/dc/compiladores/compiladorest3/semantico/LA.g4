@@ -10,7 +10,7 @@ NUM_REAL
     ;
 CADEIA 	
     :   ('\'' ( ESC_SEQ | ~('\''|'\\'|'\n') )*? '\'') 
-    |   ('"' ( ESC_SEQ | ~('\''|'\\'|'\n') )*? '"')
+    |   ('"' ( ESC_SEQ | ~('\''|'\\'|'\n') )*? '"') | '"\\n"'
     ;
 fragment
 ESC_SEQ	
@@ -78,7 +78,7 @@ tipo_basico_ident
     |   IDENT
     ;
 tipo_estendido
-    :   '^'? tipo_basico_ident
+    :   ponteiro = '^'? tipo_basico_ident
     ;
 valor_constante
     :   CADEIA 
@@ -126,7 +126,7 @@ cmdSe
     :   'se' expressao 'entao' cmd* ('senao' cmd*)? 'fim_se'
     ;
 cmdCaso
-    :   'caso' exp_aritmetica 'seja' selecao ('senao' cmd*)? 'fim_caso'
+    :   'caso' exp_aritmetica 'seja' selecao ('senao' senao = cmd*)? 'fim_caso'
     ;
 cmdPara
     :   'para' IDENT '<-' exp_aritmetica 'ate' exp_aritmetica 'faca' cmd* 'fim_para'
@@ -156,7 +156,7 @@ constantes
     :   numero_intervalo (',' numero_intervalo)*
     ;
 numero_intervalo
-    :   op_unario? NUM_INT ('..' op_unario? NUM_INT)?
+    :   op_unario? NUM_INT (pontos='..' op_unario? NUM_INT)?
     ;
 op_unario
     :   '-'
@@ -183,7 +183,7 @@ parcela
     |   parcela_nao_unario
     ;
 parcela_unario
-    :   '^'? identificador
+    :   ponteiro='^'? identificador
     |   IDENT '(' expressao (',' expressao)* ')'
     |   NUM_INT 
     |   NUM_REAL 
@@ -211,7 +211,7 @@ termo_logico
     :   fator_logico (op_logico_2 fator_logico)*
     ;
 fator_logico
-    :   'nao'? parcela_logica
+    :   nao = 'nao'? parcela_logica
     ;
 parcela_logica
     :   ( 'verdadeiro' | 'falso' )

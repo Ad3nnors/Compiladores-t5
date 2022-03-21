@@ -22,14 +22,23 @@ public class Principal {
         ProgramaContext arvore = parser.programa();
         LASemantico as = new LASemantico();
         as.visitPrograma(arvore);
-        
+        /*
         // escreve arquivo 
         FileWriter arq = new FileWriter(args[1]);
         PrintWriter gravarArq = new PrintWriter(arq);
         LASemanticoUtils.errosSemanticos.forEach((s) -> gravarArq.println(s));
         gravarArq.println("Fim da compilacao");
         arq.close();
+        */
+        LASemanticoUtils.errosSemanticos.forEach((s) -> System.out.println(s));
         
+        if(LASemanticoUtils.errosSemanticos.isEmpty()) {
+            LAGeradorC agc = new LAGeradorC();
+            agc.visitPrograma(arvore);
+            try(PrintWriter pw = new PrintWriter(args[1])) {
+                pw.print(agc.saida.toString());
+            }
+        }
         // as.tabela.imprimir();
     }
 }

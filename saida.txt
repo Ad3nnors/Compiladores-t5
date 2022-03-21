@@ -1,4 +1,11 @@
-Linha 11: atribuicao nao compativel para valor[0]
-Linha 16: identificador valor[i] nao declarado
-Linha 19: identificador media_final nao declarado
-Fim da compilacao
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+int i;
+for (i = 1; i < 5; i++) {
+printf("%d\n", i);
+printf("\n\n");
+}
+}
