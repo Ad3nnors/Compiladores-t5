@@ -32,6 +32,8 @@ A saída do executável final, que irá combinar analisador léxico+sintático+s
 
 Para a implementação do trabalho foi utilizado a ferramenta ANTLR (antlr.org) no ambiente Netbeans juntamente com o Maven. As informações de como trabalhar com ANTLR no maven encontram-se em https://www.antlr.org/api/maven-plugin/latest/usage.html
 
+Para a análise semântica foi utilizado tabela de símbolos, e para o gerador de código foi criado um visitor.
+
 <div id='como'>
 
 ## Como rodar
@@ -55,7 +57,7 @@ Como resultado, seu compilador deve ler a entrada C:\compilatorest3\casos-de-tes
 
 ## Observações
   
-Esse trabalho, T4, é continuação do T3. Por isso alguns nomes encontram-se como T3.
+Esse trabalho, T5, é continuação do T3 e do T4. Por isso alguns nomes encontram-se como T3.
 
 Encontram-se também nesse projeto:
   
