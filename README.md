@@ -1,6 +1,6 @@
 # Construção de Compiladores
 
-Trabalho 4 de Construção de Compiladores, matéria ministrada por professor Daniel Lucredio.
+Trabalho 5 de Construção de Compiladores, matéria ministrada por professor Daniel Lucredio.
 
 Autores: 
 - Anderson H. Giacomini RA: 769720
@@ -18,26 +18,13 @@ Autores:
 
 ## Descrição
 
-O trabalho 4 (T4) da disciplina consiste em implementar uma segunda parte de um analisador semântico para a linguagem LA (Linguagem Algorítmica) desenvolvida pelo prof. Jander, no âmbito do DC/UFSCar.
+O trabalho 5 (T5) da disciplina consiste em implementar um gerador de código para a linguagem LA (Linguagem Algorítmica) desenvolvida pelo prof. Jander, no âmbito do DC/UFSCar. O gerador de código deverá produzir código executável em C equivalente ao programa de entrada.
 
+<b>Juntando o analisador semântico com o gerador de código em um único executável</b>
 
-O analisador semântico detecta 4 tipos de erros:
-  
-1. Identificador (variável, constante, procedimento, função, tipo) já declarado anteriormente no escopo, **mas agora envolvendo também ponteiros, registros, funções**
-   - O mesmo identificador não pode ser usado novamente no mesmo escopo mesmo que para categorias diferentes
-2. Tipo não declarado
-3. Identificador (variável, constante, procedimento, função) não declarado, **mas agora envolvendo também ponteiros, registros, funções**
-4. Atribuição não compatível com o tipo declarado, **agora envolvendo ponteiros e registros**
-   - Atribuições possíveis
-     - ponteiro ← endereço
-     - (real | inteiro) ← (real | inteiro)
-     - literal ← literal
-     - logico ← logico
-     - registro ← registro (com mesmo nome de tipo)
-
-   - As mesmas restrições são válidas para expressões, por exemplo, ao tentar combinar um literal com um logico (como em literal + logico) deve dar tipo_indefinido e inviabilizar a atribuição
-
-Ao encontrar um erro, o analisador NÃO interrompe sua execução. Ele continua reportando erros até o final do arquivo.
+A saída do executável final, que irá combinar analisador léxico+sintático+semântico+gerador, depende da entrada:
+- Se a entrada tiver algum erro (léxico ou sintático ou semântico) a saída deve conter a descrição dos erros;
+- Se a entrada não tiver nenhum erro, a saída deve conter o código gerado.
 
 <div id='implementacao'>
 
