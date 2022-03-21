@@ -4,7 +4,7 @@
 
 int main() {
 struct {
-char[80] nome;
+char* nome;
 int idade;
 } reg;
 reg.nome = "Maria";

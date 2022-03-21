@@ -112,7 +112,7 @@ public class LAGeradorC extends LABaseVisitor<Void> {
   
         if (ctx.tipo_basico() != null) {
             // 'constante' IDENT ':' tipo_basico '=' valor_constante
-            saida.append("#define " + ctx.IDENT().getText() + " " + ctx.valor_constante() + "\n");
+            saida.append("#define " + ctx.IDENT().getText() + " " + ctx.valor_constante().getText() + "\n");
             tabela.adicionarVariavel(ctx.IDENT().getText(), ctx.tipo_basico().getText());
         }
         if (ctx.tipo() != null) {
@@ -188,8 +188,8 @@ public class LAGeradorC extends LABaseVisitor<Void> {
     @Override
     public Void visitTipo_estendido(LAParser.Tipo_estendidoContext ctx) {
         // ponteiro = '^'? tipo_basico_ident
-        if (ctx.ponteiro != null) saida.append("*");
         visitTipo_basico_ident(ctx.tipo_basico_ident());
+        if (ctx.ponteiro != null) saida.append("*");
         return null;
     }
 
@@ -363,10 +363,11 @@ public class LAGeradorC extends LABaseVisitor<Void> {
     @Override
     public Void visitCmdEscreva(LAParser.CmdEscrevaContext ctx) {
         for (LAParser.ExpressaoContext exp : ctx.expressao()) {
-            if (LASemanticoUtils.verificarTipo(tabela, exp).equals("literal")) {
+            if (exp.getText().startsWith("\"") && exp.getText().endsWith("\"")) {
                 String aux = exp.getText();
                 aux = aux.substring(1, aux.length() - 1);
-                saida.append("printf(\"" + aux + "\");\n");
+                saida.append("printf(\"" + aux + "\");\n"); 
+                // nao entendi pq isso, o '"' daria problema no printf?
             } else {
                 String tipoExpressao = LASemanticoUtils.verificarTipo(tabela, exp);
                 String aux = "";
@@ -428,6 +429,7 @@ public class LAGeradorC extends LABaseVisitor<Void> {
             ctx.cmd().forEach(cmd -> visitCmd(cmd));
             saida.append("break;\n");
         }
+        saida.append("}\n");
         return null;
     }
 
@@ -436,7 +438,7 @@ public class LAGeradorC extends LABaseVisitor<Void> {
         // 'para' IDENT '<-' exp_aritmetica 'ate' exp_aritmetica 'faca' cmd* 'fim_para'
         saida.append("for (" + ctx.IDENT().getText() + " = ");
         visitExp_aritmetica(ctx.exp_aritmetica(0));
-        saida.append("; " + ctx.IDENT().getText() + " < ");
+        saida.append("; " + ctx.IDENT().getText() + " <= ");
         visitExp_aritmetica(ctx.exp_aritmetica(1));
         saida.append("; " + ctx.IDENT().getText() + "++) {\n");
         ctx.cmd().forEach(cmd -> visitCmd(cmd));

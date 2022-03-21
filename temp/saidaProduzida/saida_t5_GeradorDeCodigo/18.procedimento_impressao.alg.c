@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void proc_imprime(char[80] mensagem) {
+void proc_imprime(char* mensagem) {
 printf("ensage");
 printf("\n");
 }

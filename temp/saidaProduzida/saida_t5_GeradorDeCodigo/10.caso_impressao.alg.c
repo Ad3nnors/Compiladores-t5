@@ -112,5 +112,6 @@ break;
 default:
 printf("ERRO");
 break;
+}
 return 0;
 }

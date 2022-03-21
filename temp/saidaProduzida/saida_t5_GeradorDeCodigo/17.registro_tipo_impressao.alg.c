@@ -4,7 +4,7 @@
 
 int main() {
 typedef struct {
-char[80] nome;
+char* nome;
 int idade;
 } treg;
 treg reg;

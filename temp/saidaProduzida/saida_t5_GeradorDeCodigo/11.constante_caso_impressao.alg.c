@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define teste [123 112 106 100]
+#define teste 8
 
 int main() {
 switch (teste) {
@@ -19,5 +19,6 @@ case 8:
 default:
 printf("ERRO");
 break;
+}
 return 0;
 }
