@@ -1,6 +1,6 @@
 # Construção de Compiladores
 
-Trabalho 4 de Construção de Compiladores, matéria ministrada por professor Daniel Lucredio.
+Trabalho 3 de Construção de Compiladores, matéria ministrada por professor Daniel Lucredio.
 
 Autores: 
 - Anderson H. Giacomini RA: 769720
@@ -18,16 +18,15 @@ Autores:
 
 ## Descrição
 
-O trabalho 4 (T4) da disciplina consiste em implementar uma segunda parte de um analisador semântico para a linguagem LA (Linguagem Algorítmica) desenvolvida pelo prof. Jander, no âmbito do DC/UFSCar.
-
+O trabalho 3 (T3) da disciplina consiste na implementação de um analisador semântico para a linguagem LA (Linguagem Algorítmica) desenvolvida pelo prof. Jander, no âmbito do DC/UFSCar. 
 
 O analisador semântico detecta 4 tipos de erros:
   
-1. Identificador (variável, constante, procedimento, função, tipo) já declarado anteriormente no escopo, **mas agora envolvendo também ponteiros, registros, funções**
+1. Identificador (variável, constante, procedimento, função, tipo) já declarado anteriormente no escopo
    - O mesmo identificador não pode ser usado novamente no mesmo escopo mesmo que para categorias diferentes
 2. Tipo não declarado
-3. Identificador (variável, constante, procedimento, função) não declarado, **mas agora envolvendo também ponteiros, registros, funções**
-4. Atribuição não compatível com o tipo declarado, **agora envolvendo ponteiros e registros**
+3. Identificador (variável, constante, procedimento, função) não declarado
+4. Atribuição não compatível com o tipo declarado
    - Atribuições possíveis
      - ponteiro ← endereço
      - (real | inteiro) ← (real | inteiro)
@@ -67,8 +66,6 @@ Como resultado, seu compilador deve ler a entrada C:\compilatorest3\casos-de-tes
 <div id='obs'>
 
 ## Observações
-  
-Esse trabalho, T4, é continuação do T3. Por isso alguns nomes encontram-se como T3.
 
 Encontram-se também nesse projeto:
   
