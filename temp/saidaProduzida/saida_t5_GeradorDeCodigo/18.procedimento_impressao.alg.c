@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 void proc_imprime(char* mensagem) {
-printf("ensage");
+printf("%s", mensagem);
 printf("\n");
 }
 
 int main() {
-proc_imprime("teste")
+proc_imprime("teste");
 return 0;
 }

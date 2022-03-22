@@ -4,7 +4,7 @@
 
 int main() {
 int x;
-*int endx;
+int* endx;
 x = 0;
 printf("%d", x);
 printf(" e ");

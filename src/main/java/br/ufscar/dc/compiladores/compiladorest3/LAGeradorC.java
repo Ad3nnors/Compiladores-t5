@@ -136,6 +136,19 @@ public class LAGeradorC extends LABaseVisitor<Void> {
     @Override
     public Void visitVariavel(LAParser.VariavelContext ctx) {
         // identificador (',' identificador)* ':' tipo
+        if (ctx.tipo().tipo_estendido()!= null)
+            if (ctx.tipo().tipo_estendido().tipo_basico_ident().tipo_basico() != null)
+                if (ctx.tipo().tipo_estendido().tipo_basico_ident().tipo_basico().literal != null) {
+                    saida.append("char ");
+                    int i = 0;
+                    for (LAParser.IdentificadorContext id : ctx.identificador()) {
+                        if (i == 0) saida.append(id.getText() + "[80]");
+                        else saida.append(", " + id.getText() + "[80]");
+                        i = 1;
+                    }
+                    saida.append(";\n");
+                    return null;
+                }
         visitTipo(ctx.tipo());
         saida.append(" ");
         int i = 0;
@@ -334,6 +347,7 @@ public class LAGeradorC extends LABaseVisitor<Void> {
         for (LAParser.IdentificadorContext ident : ctx.identificador()) {
             String nomeVar = ident.getText();
             String tipoVariavel = LASemanticoUtils.verificarTipo(tabela, nomeVar);
+            if (!tipoVariavel.equals("literal")) nomeVar = "&" + nomeVar;
             String aux = "%s";
             switch (tipoVariavel) {
                 case "inteiro":
@@ -355,8 +369,8 @@ public class LAGeradorC extends LABaseVisitor<Void> {
                 tipoVars += ", " + aux;
             }
         }
-        
-        saida.append("scanf(\"" + tipoVars + "\", &" + nomeVars + ");\n");
+        if (tipoVars.equals("%s")) saida.append("gets(" + nomeVars + ");\n");
+        else saida.append("scanf(\"" + tipoVars + "\", " + nomeVars + ");\n");
         return null;
     }
 
@@ -417,10 +431,12 @@ public class LAGeradorC extends LABaseVisitor<Void> {
                             for (i = i; i <= Integer.parseInt(nit.NUM_INT(1).getText()); i++){
                                 saida.append("case "+ i+":\n");
                             }
-                            itm.cmd().forEach(itmcmd -> visitCmd(itmcmd));
-                            saida.append("break;\n");
                         }
-                        else saida.append("case "+ nit.NUM_INT(0) +":\n");
+                        else {
+                            saida.append("case "+ nit.NUM_INT(0) +":\n"); 
+                        }
+                        itm.cmd().forEach(itmcmd -> visitCmd(itmcmd));
+                        saida.append("break;\n");
                     }
                 }
         }
@@ -472,6 +488,14 @@ public class LAGeradorC extends LABaseVisitor<Void> {
     @Override
     public Void visitCmdAtribuicao(LAParser.CmdAtribuicaoContext ctx) {
         // (ponteiro = '^')? identificador '<-' expressao
+        String nomeVar = ctx.identificador().getText();
+        if (tabela.existe(nomeVar)){
+            String tipoVariavel = LASemanticoUtils.verificarTipo(tabela, nomeVar);
+            if (tipoVariavel.equals("literal")) {
+                saida.append("strcpy(" + nomeVar + ", " + ctx.expressao().getText() + ");\n");
+                return null;
+            }
+        }
         if (ctx.ponteiro != null) saida.append("*");
         saida.append(ctx.identificador().getText() + " = ");
         visitExpressao(ctx.expressao());
@@ -482,7 +506,7 @@ public class LAGeradorC extends LABaseVisitor<Void> {
     @Override
     public Void visitCmdChamada(LAParser.CmdChamadaContext ctx) {
         // IDENT '(' expressao (',' expressao)* ')'
-        saida.append(ctx.getText() + "\n");
+        saida.append(ctx.getText() + ";\n");
         return null;
     }
 

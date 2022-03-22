@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void proc_imprime(char* mensagem) {
+printf("%s", mensagem);
+printf("\n");
+}
 
 int main() {
-int i;
-for (i = 1; i < 5; i++) {
-printf("%d\n", i);
-printf("\n\n");
-}
+proc_imprime("teste")
+return 0;
 }

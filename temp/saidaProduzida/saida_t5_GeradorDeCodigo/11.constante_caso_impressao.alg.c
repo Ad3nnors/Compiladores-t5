@@ -16,6 +16,8 @@ case 7:
 printf("ERRO");
 break;
 case 8:
+printf("OK");
+break;
 default:
 printf("ERRO");
 break;

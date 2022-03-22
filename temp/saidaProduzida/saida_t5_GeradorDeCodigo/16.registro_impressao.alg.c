@@ -4,12 +4,12 @@
 
 int main() {
 struct {
-char* nome;
+char nome[80];
 int idade;
 } reg;
-reg.nome = "Maria";
+strcpy(reg.nome, "Maria");
 reg.idade = 24;
-printf("eg.nom");
+printf("%s", reg.nome);
 printf(" tem ");
 printf("%d", reg.idade);
 printf(" anos");

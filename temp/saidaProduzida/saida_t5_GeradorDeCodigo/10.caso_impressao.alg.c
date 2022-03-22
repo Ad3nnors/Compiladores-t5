@@ -9,6 +9,8 @@ case 1:
 printf("ERRO");
 break;
 case 2:
+printf("OK");
+break;
 case 3:
 case 4:
 case 5:

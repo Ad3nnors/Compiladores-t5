@@ -4,13 +4,13 @@
 
 int main() {
 typedef struct {
-char* nome;
+char nome[80];
 int idade;
 } treg;
 treg reg;
-reg.nome = "Maria";
+strcpy(reg.nome, "Maria");
 reg.idade = 30;
-printf("eg.nom");
+printf("%s", reg.nome);
 printf(" tem ");
 printf("%d", reg.idade);
 printf(" anos");

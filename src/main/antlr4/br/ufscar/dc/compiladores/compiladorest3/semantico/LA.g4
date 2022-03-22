@@ -68,7 +68,7 @@ tipo:   registro
     |   tipo_estendido
     ;
 tipo_basico
-    :   'literal' 
+    :   literal='literal' 
     |   'inteiro' 
     |   'real' 
     |   'logico'
